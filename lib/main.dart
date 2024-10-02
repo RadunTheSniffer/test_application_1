@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Worker Management App',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 71, 122, 188)),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 30, 190, 54)),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Worker Management App'),
@@ -57,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: Container(
                         margin: const EdgeInsets.all(10.0),
                         decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 210, 138, 221),
+                          color: const Color.fromARGB(255, 25, 139, 116),
                           boxShadow: [
                             BoxShadow(
                               color: Colors.grey.withOpacity(0.5),
@@ -85,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: Container(
                         margin: const EdgeInsets.all(10.0),
                         decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 210, 138, 221),
+                          color: const Color.fromARGB(255, 42, 203, 171),
                           boxShadow: [
                             BoxShadow(
                               color: Colors.grey.withOpacity(0.5),
@@ -104,6 +104,18 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ],
             ),
+              InkWell(
+                onTap: () {},
+                child: Container(
+                  margin: const EdgeInsets.all(10.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20.0),
+                    color: const Color.fromARGB(255, 51, 215, 122),
+                  ),
+                  height: 400, // Adjust the height as needed
+                  child: const Center(child: Text('New Larger Container')),
+                ),
+              ),
           ],
         ),
       ),
