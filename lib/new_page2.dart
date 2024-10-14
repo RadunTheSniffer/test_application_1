@@ -1,15 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' show rootBundle;
-import 'package:csv/csv.dart';
 
 class NewPage2 extends StatelessWidget {
-  const NewPage2({super.key});
+  final List<dynamic> searchData;
 
-  Future<List<List<dynamic>>> _loadCSV() async {
-    final rawData = await rootBundle.loadString('assets/data.csv');
-    List<List<dynamic>> listData = const CsvToListConverter().convert(rawData);
-    return listData;
-  }
+  const NewPage2({super.key, required this.searchData});
 
   @override
   Widget build(BuildContext context) {
@@ -18,16 +12,9 @@ class NewPage2 extends StatelessWidget {
         title: const Text('New Page 2'),
       ),
       body: Center(
-        child: FutureBuilder<List<List<dynamic>>>(
-          future: _loadCSV(),
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const CircularProgressIndicator();
-            } else if (snapshot.hasError) {
-              return Text('Error: ${snapshot.error}');
-            } else {
-              final data = snapshot.data ?? [];
-              return Column(
+        child: searchData.isEmpty
+            ? const Text('No results found.')
+            : Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Expanded(
@@ -47,20 +34,19 @@ class NewPage2 extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20.0),
                       ),
                       child: ListView.builder(
-                        itemCount: data.length,
+                        itemCount: searchData.length,
                         itemBuilder: (context, index) {
+                          var item = searchData[index];
                           return ListTile(
-                            title: Text(data[index].join(', ')),
+                            title: Text(item['name']),
+                            subtitle: Text('Age: ${item['age']}, Occupation: ${item['occupation']}'),
                           );
                         },
                       ),
                     ),
                   ),
                 ],
-              );
-            }
-          },
-        ),
+              ),
       ),
     );
   }

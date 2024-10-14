@@ -1,18 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 import 'new_page2.dart';
 
 class NewPage1 extends StatelessWidget {
   const NewPage1({super.key});
 
-  void _navigateToNewPage2(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const NewPage2()),
-    );
+  Future<void> _searchUser(BuildContext context, String username) async {
+    try {
+      final response = await http.get(Uri.parse('http://localhost:8080/search_user.php?username=$username'));
+
+      if (response.statusCode == 200) {
+        List<dynamic> data = json.decode(response.body);
+        // Navigate to NewPage2 with the search data
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => NewPage2(searchData: data)),
+        );
+      } else {
+        print('Failed to load data: ${response.statusCode}');
+        throw Exception('Failed to load data');
+      }
+    } catch (e) {
+      print('Error: $e');
+    }
   }
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController _controller = TextEditingController();
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('New Page 1'),
@@ -36,27 +53,30 @@ class NewPage1 extends StatelessWidget {
                   ],
                   borderRadius: BorderRadius.circular(20.0),
                 ),
-                child: const Column(
+                child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Text(
+                    const Text(
                       'Enter the username: ',
                       style: TextStyle(fontSize: 20),
                     ),
-                    SizedBox(height: 80),
+                    const SizedBox(height: 80),
                     TextField(
-                      decoration: InputDecoration(
+                      controller: _controller,
+                      decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'Username',
                       ),
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                   ],
                 ),
               ),
             ),
             ElevatedButton(
-              onPressed: () => _navigateToNewPage2(context),
+              onPressed: () {
+                _searchUser(context, _controller.text);
+              },
               child: const Text('Enter'),
             ),
           ],

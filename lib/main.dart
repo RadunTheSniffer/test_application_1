@@ -57,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: Container(
                         margin: const EdgeInsets.all(10.0),
                         decoration: BoxDecoration(
-                          gradient: LinearGradient(
+                          gradient: const LinearGradient(
                             colors: [Colors.green, Colors.teal],
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight,
@@ -93,12 +93,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: InkWell(
                       onTap: () => Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const NewPage2()),
+                        MaterialPageRoute(builder: (context) => const NewPage2(searchData: [])),
                       ),
                       child: Container(
                         margin: const EdgeInsets.all(10.0),
                         decoration: BoxDecoration(
-                          gradient: LinearGradient(
+                          gradient: const LinearGradient(
                             colors: [Colors.cyan, Colors.tealAccent],
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight,
@@ -153,9 +153,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 400, // Adjust the height as needed
                 child: const Center(
                   child: Text(
-                    'Top Workers of the Day'
-                    'Top Three',
-                   
+                    'Top Workers of the Day\nTop Three',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 24,
