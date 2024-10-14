@@ -57,7 +57,11 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: Container(
                         margin: const EdgeInsets.all(10.0),
                         decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 25, 139, 116),
+                          gradient: LinearGradient(
+                            colors: [Colors.green, Colors.teal],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                          ),
                           boxShadow: [
                             BoxShadow(
                               color: Colors.grey.withOpacity(0.5),
@@ -69,7 +73,16 @@ class _MyHomePageState extends State<MyHomePage> {
                           borderRadius: BorderRadius.circular(20.0),
                         ),
                         height: 100,
-                        child: const Center(child: Text('Worker Statistics')),
+                        child: const Center(
+                          child: Text(
+                            'Worker Statistics',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -85,7 +98,11 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: Container(
                         margin: const EdgeInsets.all(10.0),
                         decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 42, 203, 171),
+                          gradient: LinearGradient(
+                            colors: [Colors.cyan, Colors.tealAccent],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                          ),
                           boxShadow: [
                             BoxShadow(
                               color: Colors.grey.withOpacity(0.5),
@@ -97,25 +114,57 @@ class _MyHomePageState extends State<MyHomePage> {
                           borderRadius: BorderRadius.circular(20.0),
                         ),
                         height: 100,
-                        child: const Center(child: Text('Announcements')),
+                        child: const Center(
+                          child: Text(
+                            'Announcements',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   ),
                 ),
               ],
             ),
-              InkWell(
-                onTap: () {},
-                child: Container(
-                  margin: const EdgeInsets.all(10.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20.0),
-                    color: const Color.fromARGB(255, 51, 215, 122),
+            InkWell(
+              onTap: () {},
+              child: Container(
+                margin: const EdgeInsets.all(10.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20.0),
+                  gradient: const LinearGradient(
+                    colors: [Colors.lightGreen, Colors.greenAccent],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
                   ),
-                  height: 400, // Adjust the height as needed
-                  child: const Center(child: Text('New Larger Container')),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 5,
+                      blurRadius: 7,
+                      offset: const Offset(0, 3),
+                    )
+                  ],
+                ),
+                height: 400, // Adjust the height as needed
+                child: const Center(
+                  child: Text(
+                    'Top Workers of the Day'
+                    'Top Three',
+                   
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
               ),
+            ),
           ],
         ),
       ),
