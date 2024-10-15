@@ -100,4 +100,6 @@ Edit the link according to the file name and save. Do a Hot Reload or restard th
 If you want to modify anything please refer to the directory /lib, that's where all the main program is located.
 That's all, have fun developing guys !!!
 
+Contact me here :
+Gmail: ridhuan.work2001@gmail.com
 
