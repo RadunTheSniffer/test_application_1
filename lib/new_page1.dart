@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'new_page2.dart';
+import 'new_page3.dart';
 
 class NewPage1 extends StatelessWidget {
   const NewPage1({super.key});
@@ -12,10 +12,10 @@ class NewPage1 extends StatelessWidget {
 
       if (response.statusCode == 200) {
         List<dynamic> data = json.decode(response.body);
-        // Navigate to NewPage2 with the search data
+        // Navigate to NewPage3 with the search data and visibility set to true
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => NewPage2(searchData: data)),
+          MaterialPageRoute(builder: (context) => NewPage3(searchData: data, isVisible: true)),
         );
       } else {
         print('Failed to load data: ${response.statusCode}');
