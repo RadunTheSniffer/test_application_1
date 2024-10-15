@@ -1,16 +1,43 @@
-# test_application_1
+# Flutter-app
 
-A new Flutter project.
+Hi guys! Welcome to my very simple Flutter App, created for beginners. The template behind it is a workflow management app. 
+It is still under development but the bare basics are there.
 
-## Getting Started
+## Notes
+Do note that you need to have your own database setup. I'm using XAMPP (I know, not very safe but it's simple).
 
-This project is a starting point for a Flutter application.
+### SQL Script
 
-A few resources to get you started if this is your first Flutter project:
+```sql
+-- Create the staff table
+CREATE TABLE staff (
+    staff_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50),
+    age INT,
+    occupation VARCHAR(50)
+);
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+-- Insert sample data into the staff table
+INSERT INTO staff (name, age, occupation) VALUES
+('John Doe', 28, 'Software Engineer'),
+('Jane Smith', 34, 'Data Scientist'),
+('Emily Johnson', 22, 'Designer'),
+('Michael Brown', 45, 'Manager'),
+('Alice Williams', 30, 'Project Manager'),
+('Bob Martin', 27, 'QA Engineer'),
+('Charlie Davis', 35, 'DevOps Engineer'),
+('Diana Clark', 29, 'UX Researcher'),
+('Ethan Lewis', 40, 'Product Owner'),
+('Fiona Harris', 32, 'Marketing Specialist'),
+('George King', 38, 'Business Analyst'),
+('Hannah Scott', 26, 'Frontend Developer'),
+('Ian Turner', 31, 'Backend Developer'),
+('Julia Adams', 28, 'HR Manager'),
+('Kevin White', 36, 'IT Support Specialist'),
+('Laura Green', 24, 'Content Writer'),
+('Michael Young', 42, 'CTO'),
+('Nina Brown', 33, 'Graphic Designer'),
+('Oscar Hall', 29, 'Data Analyst');
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
