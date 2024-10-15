@@ -39,5 +39,50 @@ INSERT INTO staff (name, age, occupation) VALUES
 ('Nina Brown', 33, 'Graphic Designer'),
 ('Oscar Hall', 29, 'Data Analyst');
 
+```
+
+#Backend 
+IN your XAMPP server, create a script called search_user.php which will be called by the application for queries
+
+```php
+<?php
+
+//Needed to bypass blocks due to policy
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, POST");
+header("Access-Control-Allow-Headers: Content-Type");
+
+$servername = "";         // localhost server name or ip
+$username = "";           // username for databse access, check your credentials
+$password = "";           // password for username
+$dbname = "";             // database name
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+if (isset($_GET['username'])) {
+    $username = $_GET['username'];
+    $sql = "SELECT * FROM staff WHERE name LIKE '%$username%'";    // staff is table name, can be changed up to you
+    $result = $conn->query($sql);
+
+    $data = array();
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+    }
+    echo json_encode($data);
+}
+
+$conn->close();
+?>
+
+```
+#Closing Notes
+If you want to modify anything please refer to the directory /lib, that's where all the main program is located.
+That's all, have fun developing guys !!!
 
 
