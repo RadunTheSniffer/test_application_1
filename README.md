@@ -1,10 +1,20 @@
 # Flutter-app
 
 Hi guys! Welcome to my very simple Flutter App, created for beginners. The template behind it is a workflow management app. 
-It is still under development but the bare basics are there.
+It is still under development but the bare basics are there. 
 
-## Notes
-Do note that you need to have your own database setup. I'm using XAMPP (I know, not very safe but it's simple).
+# Installation
+
+Download the SDK and edit your enviroment variables.
+Select new and add the location of the file or "C\path to file\dev\flutter\bin" and place it at the top. 
+
+Once download you can repo or just start a new application and take the .dart file under /lib to your app directory. Don't forget to copy the dependencies in pubspec.yml
+If you want to run the app in different devices, installed Android Studio and Visual Studio 2022. Refer to the flutter doctor command and see any installation missing.
+
+Do note that you need to have your own database setup. I'm using XAMPP (I know, not very safe but it's simple). 
+Once installed, click to turn on Apache and MySQL in the Control Panel
+
+Here's the sql query to create a table in your database along with some data for querying.
 
 ### SQL Script
 
@@ -42,7 +52,7 @@ INSERT INTO staff (name, age, occupation) VALUES
 ```
 
 #Backend 
-IN your XAMPP server, create a script called search_user.php which will be called by the application for queries
+In your XAMPP server, create a script called search_user.php which will be called by the application for queries.
 
 ```php
 <?php
@@ -81,7 +91,12 @@ $conn->close();
 ?>
 
 ```
-#Closing Notes
+
+Save it and store in your htdocs. If you do decide to modify the script file name, do check with your NewPage1.dart which will querying.
+Edit the link according to the file name and save. Do a Hot Reload or restard the application.
+
+# Closing Notes
+
 If you want to modify anything please refer to the directory /lib, that's where all the main program is located.
 That's all, have fun developing guys !!!
 
