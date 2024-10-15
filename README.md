@@ -97,9 +97,15 @@ Edit the link according to the file name and save. Do a Hot Reload or restard th
 
 # Closing Notes
 
-If you want to modify anything please refer to the directory /lib, that's where all the main program is located.
-That's all, have fun developing guys !!!
-
 Contact me here :
-Gmail: ridhuan.work2001@gmail.com
+Gmail: ridhuanfirdaus8855@gmail.com
+or 
+Instagram: radunnnnn
+
+If you want to modify anything please refer to the directory /lib, that's where all the main program is located.
+That's all, have fun developing guys !!! :sunglasses:
+
+
+
+
 
