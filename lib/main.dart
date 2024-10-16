@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'new_page1.dart';
 import 'new_page2.dart';
-
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
 void main() {
   runApp(const MyApp());
@@ -9,6 +10,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +35,27 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  Future<void> _fetchAnnouncements(BuildContext context) async {
+    try {
+      final response = await http.get(Uri.parse('http://localhost:8080/fetch_announcements.php'));
+
+      if (response.statusCode == 200) {
+        List<dynamic> data = json.decode(response.body);
+        // Navigate to NewPage2 with the announcements data
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => NewPage2(announcements: data)),
+        );
+      } else {
+        print('Failed to load data: ${response.statusCode}');
+        throw Exception('Failed to load data');
+      }
+    } catch (e) {
+      print('Error: $e');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -92,10 +115,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(20.0),
                     child: InkWell(
-                      onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const NewPage2(searchData: [])),
-                      ),
+                      onTap: () => _fetchAnnouncements(context),
                       child: Container(
                         margin: const EdgeInsets.all(10.0),
                         decoration: BoxDecoration(
