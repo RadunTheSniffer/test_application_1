@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Worker Management App',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 30, 190, 54)),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(228, 214, 10, 122)),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Worker Management App'),
@@ -82,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         margin: const EdgeInsets.all(10.0),
                         decoration: BoxDecoration(
                           gradient: const LinearGradient(
-                            colors: [Colors.green, Colors.teal],
+                            colors: [Color.fromARGB(255, 173, 145, 42), Color.fromARGB(255, 129, 24, 24)],
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight,
                           ),
