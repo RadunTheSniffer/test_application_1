@@ -120,10 +120,10 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST");
 header("Access-Control-Allow-Headers: Content-Type");
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "workers";
+$servername = "";         // localhost server name or ip
+$username = "";           // username for databse access, check your credentials
+$password = "";           // password for username
+$dbname = "";             // database name
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
