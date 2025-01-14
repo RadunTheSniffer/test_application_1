@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Worker Management App',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(228, 214, 10, 122)),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(227, 239, 232, 235)),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Worker Management App'),
@@ -82,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         margin: const EdgeInsets.all(10.0),
                         decoration: BoxDecoration(
                           gradient: const LinearGradient(
-                            colors: [Color.fromARGB(255, 173, 145, 42), Color.fromARGB(255, 129, 24, 24)],
+                            colors: [Color.fromARGB(255, 243, 239, 226), Color.fromARGB(255, 243, 239, 226)],
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight,
                           ),
@@ -101,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: Text(
                             'Worker Statistics',
                             style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.blueGrey,
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
                             ),
@@ -120,7 +120,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         margin: const EdgeInsets.all(10.0),
                         decoration: BoxDecoration(
                           gradient: const LinearGradient(
-                            colors: [Colors.cyan, Colors.tealAccent],
+                            colors: [Color.fromARGB(255, 184, 228, 234), Colors.tealAccent],
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight,
                           ),
@@ -139,7 +139,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: Text(
                             'Announcements',
                             style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.blueGrey,
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
                             ),
@@ -158,13 +158,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20.0),
                   gradient: const LinearGradient(
-                    colors: [Colors.lightGreen, Colors.greenAccent],
+                    colors: [Color.fromARGB(255, 187, 207, 164), Colors.greenAccent],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                   ),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
+                      color: const Color.fromARGB(255, 213, 173, 173).withOpacity(0.5),
                       spreadRadius: 5,
                       blurRadius: 7,
                       offset: const Offset(0, 3),
@@ -176,7 +176,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Text(
                     'Top Workers of the Day\nTop Three',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.blueGrey,
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
                     ),
